@@ -1,0 +1,18 @@
+---------------------
+ CREDITS
+---------------------
+
+- Bootstrap 4.3.1  -  https://getbootstrap.com/
+
+- Font Awesome 5.7.2  -  https://fontawesome.com/
+
+- jQuery One Page scroll  -  https://github.com/peachananr/onepage-scroll
+
+- Lightbox  -  https://lokeshdhakar.com/projects/lightbox2/
+
+
+---------------------
+ FONTS
+---------------------
+
+- Google Fonts  -  Montserrat + Cardo
