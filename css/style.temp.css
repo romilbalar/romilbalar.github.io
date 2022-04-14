@@ -1,0 +1,77 @@
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 100;
+    margin-top: 50px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.container-fluid {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.browser text {
+    text-anchor: end;
+}
+
+.area {
+    opacity: 0.7;
+    clip-path: url(#clip);
+}
+.area:hover {
+    opacity: 1;
+}
+
+.brush .extent {
+    stroke: #fff;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+}
+
+.offset-2 {
+    margin-top: 2vh;
+    border: thin solid grey;
+    border-radius: 5px;
+    background: rgba(221,221,221,0.45)
+}
+
+div #row3 {
+    height: 30vh
+}
+
+div #row2 {
+    height: 70vh;
+}
+
+div #world-chart {
+    height: 100%;
+    width: 100%
+}
+
+div #timeline {
+    height: 100%;
+    width: 100%
+}
+
+.tiplabel {
+    font-size: medium;
+}
