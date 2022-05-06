@@ -1,7 +1,28 @@
 let worldMap;
 let timeline;
 let selectedYear;
+let slide;
 
+
+let mapButton = document.getElementById("start-map")
+mapButton.addEventListener('click',onMapStart)
+
+function updateMap() {
+    worldMap.wrangleData();
+    selectedYear = selectedYear + 1
+    if (selectedYear > 2015) {
+        slide.stop();
+    }
+}
+
+function startMapAnimation() {
+    selectedYear= 1880;
+    slide = d3.interval(updateMap,100)
+}
+
+function onMapStart(){
+    startMapAnimation();
+}
 
 let promises = [
     d3.csv("data/Tdata.csv"),
@@ -22,4 +43,6 @@ function initMainPage(data) {
     worldMap = new Worldmap("world-chart", data[0], data[1]);
     timeline =  new Timeline("timeline",data[2]);
 }
+
+
 

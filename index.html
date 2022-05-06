@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="css/style_disaster.css">
     <link rel="stylesheet" href="css/style_sea.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style_scatter.css">
+    <link rel="stylesheet" href="css/style_co2.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -51,24 +53,49 @@
         </div>
         <div class="scroll-btn link-scroll"><i class="fas fa-angle-double-down"></i></div>
       </section>
+      <section>
+        <div class="d-flex h-100 align-items-center">
+          <div class="container">
+            <header class="text-center mb-5">
+              <h2 class="text-uppercase lined">What is Climate Change?</h2>
+              <p>Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, such as through variations in the solar cycle. But since the 1800s, human activities have been the main driver of climate change, primarily due to burning fossil fuels like coal, oil and gas.</p>
+              <!--              <p>Burning fossil fuels generates greenhouse gas emissions that act like a blanket wrapped around the Earth, trapping the sun’s heat and raising temperatures. These temperature changes are a direct measure of climate change.</p>-->
+              <!--              <p>One of the direct effects of increasing temperatures is the melting of icebergs which leads to a net increase in sea levels across the globe. Average sea levels therefore form an indirect measure of climate change.</p>-->
+              <p></p>
+              <img width="300" height="300" src="img/img1.jpg"/>
+            </header>
+          </div>
+        </div>
+        <p class="font-italic mb-0 text-gray">&copy; 2022 MANIRO</p>
+      </section>
       <section id="1">
         <div class="d-flex h-100 align-items-center">
           <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="row align-items-center" id="box-area">
+              <div class="col-lg-12 mb-4 mb-lg-0">
                 <header class="text-center">
-                  <h2 class="text-uppercase lined">Temperature rise</h2>
+                  <h2 class="text-uppercase lined" style="padding-top: 30px">Global Warming</h2>
                 </header>
-<!--                <p class="lead">FILLER</p>-->
-                <p>Here, we show that average global temperature is rising</p>
-                <div class="row justify-content-center" id="row2">
-                  <div class="align-self-center" id="world-chart"></div>
-                </div>
-                <div class="row justify-content-center" id="row3">
-                  <div class="align-self-center" id="timeline">
+                <div class="row">
+                  <div class="col-9">
+                  <div class="row" style="padding-left: 20px; padding-top: 10px">
+                      <h3 style="padding-left: 200px; padding-right: 100px; font-family: 'Times New Roman'">Temperature anomalies over the years</h3>
+                      <button id="start-map" style="font-size:18px"><i class="fa fa-play" style="font-size:18px;color:green"></i></button>
+                  </div>
+                  <div class="row" id="row2">
+                    <div class="align-self-start" id="world-chart"></div>
+                  </div>
+                  <div class="row" id="row3">
+                    <div class="align-self-start" id="timeline">
+                    </div>
+                  </div>
+                  </div>
+                  <div class="col-3">
+                    <p style="padding-top: 200px">This graph illustrates the change in surface temperatures relative to 1951-1980 average temperatures.</p>
+                    <p>Click the play button to see how temperatures have changed since 1880.</p>
+                    <p>Select a specific year by brushing on the global chart and then hover over the countries.</p>
                   </div>
                 </div>
-
             </header>
 <!--            <div class="row text-center">-->
 <!--              <div class="col-lg-4 col-md-6 mb-4">-->
@@ -110,34 +137,18 @@
         <div class="d-flex h-100 align-items-center">
           <div class="container">
             <header class="text-center mb-5">
-              <h2 class="text-uppercase lined">BAD EFFECTS OF CLIMATE CHANGE</h2>
+              <h2 class="text-uppercase lined">Increase in global sea level</h2>
             </header>
             <div class="row">
               <div class="dummy">
-                <p>Shows climate change effects (one by one) using a select menu</p>
                 <div class="container-disaster row">
-                  <div class="col-md-6">
-                  <h4>Disaster data by year </h4>
-                  <div class="selectrow" >
-                    <select name="disatertype" id="disatertype" class="disatertype">
-                      <option value="total">All Disasters</option>
-                      <option value="drought">Drought</option>
-                      <option value="earthquake">Earthquake</option>
-                      <option value="extreme_temperature">Extreme Temperature</option>
-                      <option value="flood">Flood</option>
-                      <option value="landslide">Landslide</option>
-                      <option value="storm">Storm</option>
-                    </select>
+                  <div class="col-md-8">
+                    <h4> Global sea level change</h4>
+                    <div id="chart-area"></div>
                   </div>
-                  <br>
-                  <div  style="height: 50vh; width: 80vh">
-                    <div class="chart" id="disaster-barchart" style="height: 100%; width: 100%"></div>
+                  <div class="col-md-4">
+                    <p style="padding-top: 200px">The rate of sea level rise has been accelerating over the years. Global mean sea level has risen about 8–9 inches (21–24 centimeters) since 1880, with about a third of that coming in just the last two and a half decades.</p>
                   </div>
-                  </div>
-                  <div class="col-md-6">
-                      <h4> Global sea level change</h4>
-                      <div id="chart-area"></div>
-                    </div>
                 </div>
               </div>
               <!--<div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-1.jpg" data-lightbox="image-1" data-title="My caption" class="d-block mb-1"><img src="img/portfolio-1.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div> -->
@@ -154,39 +165,65 @@
         <div class="d-flex h-100 align-items-center">
           <div class="container">
             <header class="text-center mb-5">
-              <h2 class="text-uppercase lined">BEST PERFORMERS (shows C02 emissions)</h2>
+              <h2 class="text-uppercase lined">Global Disasters</h2>
             </header>
             <div class="row">
-              <div class="col-lg-12 text-center">
-                <p>These are the best countries with respect to controlling climate change (lowest relative CO2 emissions as % change)</p>
-                <p>Placeholder for VIS showing the same</p>
+              <p id="disaster_text">We can see a general increase in all natural disasters ranging from drought to storms</p>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="chart" id="disaster-barchart" style="height: 100%; width: 100%"></div>
               </div>
-<!--              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-2.jpg" data-lightbox="image-1" data-title="My caption" class="d-block mb-1"><img src="img/portfolio-2.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>-->
-<!--              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-3.jpg" data-lightbox="image-1" data-title="My caption" class="d-block mb-1"><img src="img/portfolio-3.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>-->
-<!--              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-4.jpg" data-lightbox="image-1" data-title="My caption" class="d-block mb-1"><img src="img/portfolio-4.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>-->
-<!--              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-5.jpg" data-lightbox="image-1" data-title="My caption" class="d-block mb-1"><img src="img/portfolio-5.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>-->
-<!--              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-6.jpg" data-lightbox="image-1" data-title="My caption" class="d-block mb-1"><img src="img/portfolio-6.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>-->
+              <div class="col-md-4">
+
+                <p style="font-size: 14px">Select a button below to see specific disaster data</p>
+
+                <button id="drought" class="drought btn-google" name="drought">
+                  <!--                    <span name="drought">-->
+                  <img src="img/drought-icon.png" alt="img"  >
+                  <!--                    </span>-->
+                  Drought
+                </button>
+                <button id="earthquake" class="earthquake btn-google" name="earthquake">
+                  <img src="img/earthquake-icon.png" alt="img">
+                  Earthquake
+                </button>
+                <button id="extreme_temperature" class="extreme_temperature btn-google" name="extreme_temperature">
+                  <img src="img/extreme-icon.png" alt="img">
+                  Extreme Temperature
+                </button>
+                <button id="flood" class="flood btn-google" name="flood">
+                  <img src="img/flood-icon.png" alt="img">
+                  Flood
+                </button>
+                <button id="landslide" class="landslide btn-google" name="landslide">
+                  <img src="img/landslide-icon.png" alt="img">
+                  Landslide
+                </button>
+                <button id="storm" class="storm btn-google" name="storm">
+                  <img src="img/storm-icon.png" alt="img">
+                  Storm
+                </button>
+                <button id="total" class="total btn-google" name="total">
+                  <img src="img/all-icon.png" alt="img">
+                  All Disasters
+                </button>
+
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="bg-gray">
+
+      <section>
         <div class="d-flex h-100 align-items-center">
           <div class="container">
             <header class="text-center mb-5">
-              <h2 class="text-uppercase lined">BUT WAIT</h2>
+              <h2 class="text-uppercase lined">C02 emissions</h2>
+              <p>CO2 emissions are one of the major causes of climate change. The increase in CO2 emissions over the years has led to many negative effects like temperature increase, rise in sea level etc. as seen above. It is important to understand how the different countries have been contributing to this issue. The following visualization shows the relative CO2 emissions for six countries and their trends over the years.</p>
             </header>
-            <div class="row">
-              <div class="col-lg-10">
-                <p>HDI: Human Development Index - shows how well a country's people are doing with respect to all-round welfare</p>
-                <p>We use HDI as a measure of a country's development</p>
-                <p>HDI vs CO2 graph</p>
-                <p>There are some countries which have not developed yet</p>
-              </div>
-              <div class="col-lg-6">
-<!--                <p>Effects present letters inquiry no an removed or friends. Desire behind latter me though in. Supposing shameless am he engrossed up additions. My possible peculiar together to. Desire so better am cannot he up before points. Remember mistaken opinions it pleasure of debating. Court front maids forty if aware their at. Chicken use are pressed removed.</p>-->
-<!--                <p>Saw yet kindness too replying whatever marianne. Old sentiments resolution admiration unaffected its mrs literature. Behaviour new set existence dashwoods. It satisfied to mr commanded consisted disposing engrossed. Tall snug do of till on easy. Form not calm new fail.</p>-->
-              </div>
+            <div class="row" style="height: 60vh; " id = "chart">
+              <div class="align-self-center" id="co2-chart" style="height: 100%; width: 100%"></div>
             </div>
           </div>
         </div>
@@ -195,11 +232,79 @@
         <div class="d-flex h-100 align-items-center">
           <div class="container">
             <header class="text-center mb-5">
-              <h2 class="text-uppercase lined">We go further into the stories of all the countries being blamed</h2>
+              <h2 class="text-uppercase lined">Are we seeing the complete picture?</h2>
+              <p>It seems that those developing countries shown previously are to blame for all the world's climate change problems. They are clearly the ones producing the most CO2. The ones kissing the axis of our graph should be honed as role models for all other countries? We often see these countries at the forefront of climate summits and the one trying to enforce world-wide climate budgets. Are we looking at this picture correctly?</p>
+              <p>We don't think so. In the following visualization, you will get to see for yourself the "illustrious" development of most of these "role model" countries. You can then compare their journeys to those of the developing countries' which are usually put to blame. Is it fair to compare the energy needs of developing and developed countries?</p>
+            </header>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray">
+        <div class="d-flex h-100 align-items-center">
+          <div class="container">
+            <header class="text-center mb-5">
+              <h2 class="text-uppercase lined">CO2 emissions vs Development</h2>
             </header>
             <div class="row">
-              <div class="col-lg-10">
-                <p>We focus on these countries using our novel visualization: showing how long a country took to "develop" and at what C02 cost" </p>
+              <p style="font-family: 'Times New Roman'; font-size: 20px">This graph shows CO2 emissions with respect to HDI depicting the amount of emissions during development by each country</p>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="row" style="font-family: 'Times New Roman'">
+                  <h5>Step 1: Select Countries</h5>
+                </div>
+                <div>
+                  <input type="checkbox" id="myCheckbox1" class="checkmark">USA </input>
+                  <input type="checkbox" id="myCheckbox2" class="checkmark">China </input>
+                  <input type="checkbox" id="myCheckbox3" class="checkmark">Australia </input>
+                  <input type="checkbox" id="myCheckbox4" class="checkmark">South Korea</input>
+                  <input type="checkbox" id="myCheckbox5" class="checkmark">Singapore</input>
+                  <input type="checkbox" id="myCheckbox6" class="checkmark">India</input>
+                  <input type="checkbox" id="myCheckbox7" class="checkmark">Libya</input>
+                </div>
+                <div class="row" style="font-family: 'Times New Roman'">
+                  <h5>Step 2: Select Co2 measure and Start!</h5>
+                </div>
+                <div class="row" id="selection-row">
+                  <div class="col-md-auto"  id="selection">
+                    <select name="carbon" id="co2-measure" class="co2measure">
+                      <option value="perCapita">Per Capita</option>
+                      <option value="CO2">Absolute</option>
+                    </select>
+                  </div>
+                  <div class="col-md-auto" id="run-button">
+                    <button type="button" id="start-chart">Start!</button>
+                  </div>
+                </div>
+                <div class="row" id="year-row">
+                  <div id="year-text" style="font-family: Georgia; color: cadetblue; font-size: 20px"></div>
+                </div>
+                <div class = "row scatter-container" id="scatter-row">
+                  <div id="scatter-chart"></div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <p style="padding-top: 100px">HDI: Human Development Index - shows how well a country's people are doing with respect to all-round welfare</p>
+                </div>
+                <div id="dynamic_text" class="row">
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+      </section>
+      <section>
+        <div class="d-flex h-100 align-items-center">
+          <div class="container">
+            <header class="text-center mb-5">
+              <h2 class="text-uppercase lined">Path taken by different developed countries</h2>
+              <p>Each 'hop' represents a 10% increase in the countries' development. The larger the hop, the greater the CO2 per capita expended by that country for that 10% of development. We see 4 different countries go from 'developing' to 'developed'. The paths taken by them are drastically different. This graph should help us determine our 'role model' countries when it comes to climate change.</p>
+            </header>
+            <div class="row">
+                <div id="my_dataviz"></div>
+<!--                <p>We focus on these countries using our novel visualization: showing how long a country took to "develop" and at what C02 cost" </p>-->
 <!--                <p>Able an hope of body. Any nay shyness article matters own removal nothing his forming. Gay own additions education satisfied the perpetual. If he cause manor happy. Without farther she exposed saw man led. Along on happy could cease green oh.</p>-->
 <!--                <ul class="mb-0 list-inline text-center">-->
 <!--                  <li class="list-inline-item"><a href="#" class="social-link social-link-facebook"><i class="fab fa-facebook-f"></i></a></li>-->
@@ -208,7 +313,6 @@
 <!--                  <li class="list-inline-item"><a href="#" class="social-link social-link-instagram"><i class="fab fa-instagram"></i></a></li>-->
 <!--                  <li class="list-inline-item"><a href="#" class="social-link social-link-email"><i class="fas fa-envelope"></i></a></li>-->
 <!--                </ul>-->
-              </div>
             </div>
             <footer class="py-5 mt-5">
               <div class="row">
@@ -227,31 +331,16 @@
         <div class="d-flex h-100 align-items-center">
           <div class="container">
             <header class="text-center mb-5">
-              <h2 class="text-uppercase lined">We go into the case for each country and demonstrate their situation. </h2>
+              <h2 class="text-uppercase lined">Conclusion </h2>
+              <p>Clearly, we see that many countries have achieved their development by expending enough CO2 to even put us into this situation of global warming. The fact that many other countries have achieved the same development through leaner means shows that it is definitely possible.</p>
+              <p>Now, the question stands that should the developing countries be held to standards which were clearly broken by these developed countries during their own development or should the developing countries be allowed to develop unrestrained and in the process push the world over the edge when it comes to climate change.</p>
+              <p>These are answers the world's leaders are trying to resolve but the records show what the records show with respect to past CO2 consumption. Ideally, the developing countries can realize that renewable energy and sustainable development are what the future needs. It will, however, be a difficult journey for them as they battle new-founded  laws and regulations enforced by countries who have reached their current status unhindered by any such rules.</p>
             </header>
             <div class="row">
-              <div class="col-lg-10">
-              <p>DEVELOPED, DEVELOPING, UNDERDEVELOPED countries: case in point</p>
-          </div>
         </div>
           </div>
         </div>
 
-      </section>
-      <section>
-        <div class="d-flex h-100 align-items-center">
-          <div class="container">
-            <header class="text-center mb-5">
-              <h2 class="text-uppercase lined">What does the future hold? What can we expect?</h2>
-            </header>
-            <div class="row">
-              <div class="col-lg-10">
-                <p>Placeholder for stats about renewable energy adoption, future energy use, and predictions</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="font-italic mb-0 text-gray">&copy; 2022 MANIRO</p>
       </section>
     </div>
     <!-- JavaScript files-->
@@ -260,6 +349,8 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/onepage-scroll/jquery.onepage-scroll.min.js"></script>
     <script src="vendor/lightbox2/js/lightbox.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
     <script src="js/front.js"></script>
     <script src="js/worldmap_web.js"></script>
     <script src="js/timeline_web.js"></script>
@@ -267,6 +358,13 @@
     <script src="js/disasterViz.js"></script>
     <script src="js/main_web.js"></script>
     <script src="js/main_sea.js"></script>
+    <script src="js/main_ch.csv.js"></script>
+    <script src="js/scatterchart_web.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="js/arcVis.js"></script>
+    <script src="js/CO2Viz.js"></script>
+    <script src="js/main_co2.js"></script>
+
 
     <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">

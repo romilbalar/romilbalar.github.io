@@ -1,4 +1,21 @@
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 180px;
+    height: 5px;
+    padding: 2px;
+    font: 12px sans-serif;
+    border-radius: 2px;
+    /*  pointer-events: none;	This line needs to be removed */
+}
 
+.tooltip h3 {
+    font-size: 15px;
+}
+
+.tooltip h4 {
+    font-size: 10px;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -47,33 +64,40 @@ h2 {
     shape-rendering: crispEdges;
 }
 
-.offset-2 {
-    margin-top: 2vh;
-    border: thin solid grey;
-    border-radius: 5px;
-    background: rgba(221,221,221,0.45)
-}
+
 
 div #row3 {
-    height: 30vh;
+    height: 25vh;
     width: 120vh;
 }
 
 div #row2 {
-    height: 50vh;
+    height: 60vh;
     width: 120vh;
 }
 
 div #world-chart {
     height: 100%;
-    width: 100%
+    width: 100%;
+}
+
+div #box-area{
+    margin-top: 2vh;
+    border-radius: 2px;
 }
 
 div #timeline {
     height: 100%;
-    width: 100%
+    width: 100%;
 }
 
 .tiplabel {
     font-size: medium;
+}
+
+.map_year_text{
+    border: thin solid skyblue;
+    margin-top: 2vh;
+    border-radius: 5px;
+    background: rgba(122, 121, 121, 0.45)
 }

@@ -23,7 +23,7 @@ class DisasterViz {
     initVis() {
         let vis = this;
 
-        vis.margin = { top: 100, right: 30, bottom: 50, left: 50 };
+        vis.margin = { top: 30, right: 30, bottom: 50, left: 50 };
 
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
@@ -47,12 +47,12 @@ class DisasterViz {
             newData.push(i);
         }
 
-        var colorScaleLin = d3.scaleLinear()
+        /*var colorScaleLin = d3.scaleLinear()
             .domain([0, newData.length-1])
             .interpolate(d3.interpolateLab)
-            .range(["skyblue", "blue"]);
+            .range(["skyblue", "blue"]);*/
 
-        vis.legend = vis.svg.append("g")
+       /* vis.legend = vis.svg.append("g")
             .attr("class", "legend")
             .attr("transform", "translate(" + (vis.width-sectionWidth-vis.margin.right-150)  + "," + (0-vis.margin.top) + ")")
 
@@ -77,7 +77,7 @@ class DisasterViz {
             .text("0")
         vis.textmax = vis.legend.append("text")
             .attr("transform","translate("+(sectionWidth+130)+",40)")
-            .style("font-size", "10px")
+            .style("font-size", "10px")*/
 
 
         // Scales and axes
@@ -110,23 +110,49 @@ class DisasterViz {
 
 
 
-        vis.linearColor = d3.scaleLinear()
-            .range(["skyblue","blue"]);
+       /*vis.linearColor = d3.scaleLinear()
+            .range(["blue","blue"]);*/
+
+        vis.linearOp = d3.scaleLinear()
+            .range([0.1,1]);
+        vis.categories=['total','drought','earthquake','extreme_temperature','flood','landslide', 'storm' ]
+
+        vis.linearColor = d3.scaleOrdinal()
+            //.range(["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf"])
+            .range(["#1f77b4","#ff7f0e","#2ca02c","#d62728","#17becf","#8c564b","#7f7f7f"])
+            .domain(vis.categories)
+
+
+
 
         vis.selected ='total'
-        const selectElement = document.querySelector('.disatertype');
+        /*const selectElement = document.querySelector('.disatertype');
         selectElement.addEventListener('change', (event) => {
             console.log('Selected value'+event.target.value);
             vis.selected = event.target.value;
             //vis.displayData.sort(function(a, b){return b[sortorder] - a[sortorder]});
             //console.log(vis.displayData[0])
+            d3.select("#disaster_text").text(disaster_data[vis.selected])
             vis.updateVis()
+        });*/
+        const onclickevent = document.querySelectorAll('.drought, .earthquake, .extreme_temperature, .flood, .landslide, .storm, .total');
+
+        onclickevent.forEach(selectedEvent => {
+            selectedEvent.addEventListener('click', (event) =>{
+                console.log('****'+event.currentTarget.name);
+                vis.selected = event.currentTarget.name;
+                //vis.displayData.sort(function(a, b){return b[sortorder] - a[sortorder]});
+                //console.log(vis.displayData[0])
+                d3.select("#disaster_text").text(disaster_data[vis.selected])
+                vis.updateVis()
+            });
         });
 
 
         // (Filter, aggregate, modify data)
         vis.wrangleData();
     }
+
 
 
     /*
@@ -154,8 +180,9 @@ class DisasterViz {
         // Update domains
 
         vis.y.domain([0, d3.max(vis.displayData, d=>d[vis.selected])]);
-        vis.linearColor.domain([0, d3.max(vis.displayData, d=>d[vis.selected])])
-        vis.textmax.text(d3.max(vis.displayData, d=>d[vis.selected]))
+        //vis.linearColor.domain([0, d3.max(vis.displayData, d=>d[vis.selected])])
+        vis.linearOp.domain([0, d3.max(vis.displayData, d=>d[vis.selected])])
+       // vis.textmax.text(d3.max(vis.displayData, d=>d[vis.selected]))
 
         let bars = vis.svg.selectAll(".bar")
             .data(this.displayData);
@@ -178,16 +205,19 @@ class DisasterViz {
                 return vis.y(d[vis.selected]);
             })
             .attr("fill", function (d) {
-                console.log(vis.linearColor(d[vis.selected]))
-                return vis.linearColor(d[vis.selected]);
+                ///console.log(vis.linearColor(d[vis.selected]))
+                return vis.linearColor(vis.selected);
             })
-            //.attr('fill', 'skyblue')
+            .attr('opacity', d=>
+            {
+                return vis.linearOp(d[vis.selected])
+            });
 
         bars.exit().remove();
 
         console.log(vis.displayData.length)
         vis.textlabels.attr('x', (d,i)=>{
-            console.log('x coor'+i)
+            //console.log('x coor'+i)
             if(d[vis.selected]<1000){
                 return vis.x(d.year)+(vis.x.bandwidth()/2) - 10;
             }
@@ -206,7 +236,11 @@ class DisasterViz {
         vis.svg.select(".y-axis").call(vis.yAxis);
 
         // TODO: adjust axis labels
-        vis.svg.select(".x-axis").call(vis.xAxis)
+        vis.svg.select(".x-axis").call(vis.xAxis).selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-50)");
 
     }
 

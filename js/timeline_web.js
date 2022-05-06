@@ -25,7 +25,7 @@ class Timeline {
         // store keyword this which refers to the object it belongs to in variable vis
         let vis = this;
 
-        vis.margin = {top: 10, right: 150, bottom: 70, left: 150};
+        vis.margin = {top: 10, right: 150, bottom: 40, left: 150};
 
         vis.width = document.getElementById(vis._parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis._parentElement).getBoundingClientRect().height  - vis.margin.top - vis.margin.bottom;
@@ -128,5 +128,14 @@ class Timeline {
             .on("mousemove", mousemove)
             .on("mouseout", mouseout)
             .on("mouseover", mouseover);
+
+        vis.svg.append("text")
+            .attr("transform","translate("+(vis.width/2 - 100)+","+(vis.height)+")")
+            .attr("font-size","10px")
+            .text("Global temperature anomaly")
+        vis.svg.append("text")
+            .attr("transform","translate("+(10)+","+(5)+")")
+            .attr("font-size","8px")
+            .text("Temperature Anomaly (°C)")
     }
 }
