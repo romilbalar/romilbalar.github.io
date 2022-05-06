@@ -239,9 +239,6 @@ class CO2Viz {
         vis.mousemove = (event, d) => {
             console.log(event)
             //console.log(vis.dategroupedArray)
-
-
-
             vis.xpos = d3.pointer(event)[0];
             const formatTime = d3.timeFormat("%Y");
             let year = formatTime(vis.x.invert(vis.xpos))

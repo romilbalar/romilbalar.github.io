@@ -12,6 +12,7 @@ function updateMap() {
     selectedYear = selectedYear + 1
     if (selectedYear > 2015) {
         slide.stop();
+        mapButton.addEventListener('click',onMapStart)
     }
 }
 
@@ -21,6 +22,7 @@ function startMapAnimation() {
 }
 
 function onMapStart(){
+    mapButton.removeEventListener('click',onMapStart);
     startMapAnimation();
 }
 
