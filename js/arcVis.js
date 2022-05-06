@@ -37,7 +37,7 @@
 
     // A linear scale for node size
     var size = d3.scaleLinear()
-    .domain([0.2,0.8])
+    .domain([0.2,0.9])
     .range([1,10]);
 
     // A linear scale to position the nodes on the X axis
@@ -64,10 +64,6 @@
         .attr("class","nodeHDI");
     node_hdi_text = node_hdi.append("text")
 
-
-
-    // In my input data, links are provided between nodes -id-, NOT between node names.
-    // So I have to do a link between this id and the name
     var idToNode = {};
     data.nodes.forEach(function (n) {
     idToNode[n.id] = n;
@@ -112,20 +108,10 @@
     .attr("cy", height-30)
     .attr("r", function(d){ return(size(d.n))})
     .style("fill", function(d){ return color(d.group)})
-    .attr("stroke", "white")
+        // .attr("stroke-width",1.2)
+    .attr("stroke", function(d){ if(d.n>=0.9){return "gold";}
+                                else {return "white";}});
 
-    // And give them a label
-    // var labels = svg
-    //     .selectAll("mylabels")
-    //     .data(data.nodes)
-    //     .enter()
-    //     .append("text")
-    //     .attr("x", 0)
-    //     .attr("y", 0)
-    //     .text(function(d){ return(d.name)} )
-    //     .style("text-anchor", "end")
-    //     .attr("transform", function(d){ return( "translate(" + (x(d.cp)) + "," + (height-15) + ")rotate(-45)")})
-    //     .style("font-size", 6)
 
 
     data.nodes.map(function (d){
@@ -145,11 +131,10 @@
     return allNames[d].split(" ")[0]+"_label"
 })
     .attr("fill",d=> color(d))
-    .attr("transform", function(d){ return( "translate(" + (d*100+50) + "," + (50) + ")")})
+    .attr("transform", function(d){ return( "translate(" + (100) + "," + (50+d*25) + ")")})
 
 
     groupLabels.on('mouseover', function (e,d) {
-    // Highlight the nodes: every node is green except of him
     d3.select(this)
     .style('opacity', 1)
     svg.selectAll("." + allNames[d].split(" ")[0] + "_arc")
@@ -169,15 +154,12 @@
     .style('fill',color(d))
 })
 
-    // Add the highlighting functionality
     nodes
     .on('mouseover', function (e,d) {
-    // Highlight the nodes: every node is green except of him
     nodes
     .style('opacity', .2)
     d3.select(this)
     .style('opacity', 1)
-    // Highlight the connections
     svg.selectAll("." + d.name.split(" ")[0] + "_arc")
     .style('stroke-width',4);
 
@@ -185,28 +167,10 @@
 
     node_hdi_text.text(d.n)
 
-    // .style('stroke', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? color(d.group) : '#b8b8b8';})
-    // .style('stroke-opacity', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 1 : .2;})
-    // .style('stroke-width', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 4 : 1;})
-
-    //svg.selectAll("." + d.name.split(" ")[0] + "_label")
-    //.style('fill','black')
-
-
-    // labels
-    //     .style("font-size", function(label_d){ return label_d.name === d.name ? 16 : 2 } )
-    //     .attr("y", function(label_d){ return label_d.name === d.name ? 10 : 0 } )
 
 })
     .on('mouseout', function (e,d) {
     nodes.style('opacity',1)
-    // links
-    //     .style('stroke', 'grey')
-    //     .style('stroke-opacity', .8)
-    //     .style('stroke-width', '1')
-
-    // data.nodes.map(function (d){
-    // svg.selectAll("."+d.name.split(" ")[0]+"_arc").attr("stroke",color(d.group)).attr('stroke-opacity', .8).attr('stroke-width','1')
 
     data.nodes.map(function(d) {
     svg.selectAll("." + d.name.split(" ")[0] + "_arc")
@@ -219,10 +183,6 @@
             .style('fill',color(d))
 
 })
-
-    // labels
-    //     .style("font-size", 6 )
-
 
 
     var linearSize = d3.scaleLinear().domain([0.2,0.8]).range([1, 10]);
