@@ -7,10 +7,10 @@ d3.csv("data/seayear.csv", d => {
 	d.Mean =+ d.Mean;
 	return d;
 }).then( data => {
-	var margin = {top: 100, right: 50, bottom: 30, left: 100};
+	var margin = {top: 30, right: 130, bottom: 30, left: 50};
 	// SVG Size
 	let width = 700 - margin.left - margin.right,
-		height = 460 - margin.top - margin.bottom;
+		height = 400 - margin.top - margin.bottom;
 
 	// Analyze the dataset in the web console
 
@@ -91,6 +91,67 @@ d3.csv("data/seayear.csv", d => {
 		.attr("y", 20)
 		.text("Global Sea level Mean")
 		.attr("transform","rotate(-90)");
+
+	var g = svg.append("g")
+		.attr("class","tooltip_class");
+
+	g.append("line")
+		.style("stroke", "black")
+		.attr("x1", 0)
+		.attr("y1", 0)
+		.attr("x2", 0)
+		.attr("y2", height);
+
+	var text1 = g.append("text")
+		.attr("x", 10)
+		.attr("y", 0 )
+		.style("font-size", '12px')
+
+	var text2 = g.append("text")
+		.attr("x", 10)
+		.attr("y", 20 )
+		.style("font-size", '14px')
+
+
+	const mouseover = (event, d) => {
+		//g.style("opacity", 0);
+		g.style("display", null);
+	};
+
+	const mouseout = (event, d) => {
+		g.style("display", "none");
+	};
+
+
+	let bisectDate = d3.bisector(d=>d.Date).left;
+
+
+	const mousemove = (event, d) => {
+		/*const text = d3.select('.tooltip-area__text');
+		text.text(`Sales were ${d.sales} in ${d.year}`);
+		const [x, y] = d3.pointer(event); */
+
+		let xpos = d3.pointer(event)[0];
+		g.attr("transform", "translate("+ xpos+" , 0)");
+		var index = bisectDate(data, x.invert(xpos));
+		const formatTime = d3.timeFormat("%Y");
+		text2.text('Sea level: '+data[index].Mean);
+		text1.text(formatTime(data[index].Date));
+
+	};
+
+
+
+	svg.append("rect")
+		.attr("x", 0)
+		.attr("y", 0)
+		.attr("width", width)
+		.attr("height", height)
+		.attr("opacity", 0)
+		.attr("fill", "black")
+		.on("mousemove", mousemove)
+		.on("mouseout", mouseout)
+		.on("mouseover", mouseover);
 
 
 })
