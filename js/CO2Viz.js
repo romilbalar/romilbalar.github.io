@@ -71,7 +71,7 @@ class CO2Viz {
         vis.svg.append("text")
             .attr("x", -vis.margin.left)
             .attr("y", -10)
-            .text("relative emissions");
+            .text("Relative emissions (%)");
 
         vis.svg.append("text")
             .attr("x", vis.width -30 )

@@ -89,7 +89,7 @@ d3.csv("data/seayear.csv", d => {
 		.attr("class", "labels")
 		.attr("text-anchor", "end")
 		.attr("y", 20)
-		.text("Global Sea level Mean")
+		.text("Global Sea level Mean (mm)")
 		.attr("transform","rotate(-90)");
 
 	var g = svg.append("g")
