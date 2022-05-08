@@ -236,7 +236,7 @@
         </div>
       </section>
 
-      <section class="bg-gray">
+      <section>
         <div class="d-flex h-100 align-items-center">
           <div class="container">
             <header class="text-center mb-5">
@@ -247,7 +247,7 @@
             </div>
             <div class="row">
               <div class="col-md-8">
-                <div class="row" style="font-family: 'Times New Roman'">
+                <div class="row" style="font-weight:bold">
                   <h5>Step 1: Select Countries</h5>
                 </div>
                 <div>
@@ -258,12 +258,16 @@
                   <input type="checkbox" id="myCheckbox5" class="checkmark">Singapore</input>
                   <input type="checkbox" id="myCheckbox6" class="checkmark">India</input>
                   <input type="checkbox" id="myCheckbox7" class="checkmark">Libya</input>
+
                 </div>
-                <div class="row" style="font-family: 'Times New Roman'">
+                <br/>
+                <div class="row" style="font-weight:bold">
                   <h5>Step 2: Select Co2 measure and Start!</h5>
                 </div>
                 <div class="row" id="selection-row">
+
                   <div class="col-md-auto"  id="selection">
+                    <label>CO2 measure:</label>
                     <select name="carbon" id="co2-measure" class="co2measure">
                       <option value="perCapita">Per Capita</option>
                       <option value="CO2">Absolute</option>
@@ -282,7 +286,7 @@
               </div>
               <div class="col-md-4">
                 <div class="row">
-                  <p style="padding-top: 100px">HDI: Human Development Index - shows how well a country's people are doing with respect to all-round welfare</p>
+                  <p style="padding-top: 100px; font-weight:bold;" >HDI: Human Development Index - shows how well a country's people are doing with respect to all-round welfare</p>
                 </div>
                 <div id="dynamic_text" class="row">
                 </div>
@@ -296,7 +300,7 @@
           <div class="container">
             <header class="text-center mb-5">
               <h2 class="text-uppercase lined">Path taken by different developed countries</h2>
-              <p>Each 'hop' represents a 10% increase in the countries' development. The larger the hop, the greater the CO2 per capita expended by that country for that 10% of development. We see 4 different countries go from 'developing' to 'developed'. The paths taken by them are drastically different. This graph should help us determine our 'role model' countries when it comes to climate change.</p>
+              <p>Each <strong>hop</strong> represents a <strong>10% increase</strong> in the countries' <strong>development</strong>. The <span style="font-weight:bold">larger the hop,</span> the <span style="font-weight:bold">greater the CO2 per capita</span> expended by that country for that 10% of development. We see 4 different countries go from 'developing' to 'developed'. The paths taken by them are drastically different. This graph should help us determine our 'role model' countries when it comes to climate change.</p>
             </header>
             <div class="row">
 

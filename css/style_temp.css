@@ -68,12 +68,12 @@ h2 {
 
 div #row3 {
     height: 25vh;
-    width: 120vh;
+    /*width: 120vh;*/
 }
 
 div #row2 {
     height: 60vh;
-    width: 120vh;
+    /*width: 120vh;*/
 }
 
 div #world-chart {

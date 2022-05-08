@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5605afb9-af3d-422e-b4c2-5866def98fd8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style_scatter.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style_scatter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style_temp.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style_temp.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/worldmap_web.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/worldmap_web.js" afterDir="false" />
     </list>
@@ -26,7 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -63,6 +65,7 @@
       <workItem from="1650240185073" duration="1354000" />
       <workItem from="1651858643572" duration="2434000" />
       <workItem from="1651963873708" duration="7543000" />
+      <workItem from="1652027847023" duration="2138000" />
     </task>
     <servers />
   </component>

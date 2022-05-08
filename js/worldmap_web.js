@@ -30,7 +30,7 @@ class Worldmap {
         console.log(this.geoData.features)
         vis.path = d3.geoPath();
         vis.projection = d3.geoMercator()
-            .scale(120)
+            .scale(vis.width/8.5)
             .center([0,20])
             .translate([vis.width / 2, vis.height / 2 + 100]);
 
