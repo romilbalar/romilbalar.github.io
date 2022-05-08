@@ -28,6 +28,21 @@ h4 {
 
 }
 
+.btn-start {
+
+    font-size: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
+    color: #555555;
+    background-color: #fff;
+    margin: auto;
+    cursor: pointer;
+
+}
 
 .btn-google img {
     width: 30px;
