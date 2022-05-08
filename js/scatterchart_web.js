@@ -290,7 +290,7 @@ class ScatterChart {
             vis.svg.select(".y-axis").call(vis.yAxis.tickFormat(d => d3.format(".2s")(d).replace("G","B")));
         }
         else{
-            vis.yLabel.text("CO2 emissions per capita");
+            vis.yLabel.text("CO2 emissions (in tonnes) per capita");
             vis.svg.select(".y-axis").call(vis.yAxis);
         }
         vis.xLabel.text("Human Development Index")

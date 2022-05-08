@@ -1,7 +1,7 @@
 
 
     // set the dimensions and margins of the graph
-    var margin = {top: 0, right: 30, bottom: 50, left: 60},
+    var margin = {top: 0, right: 40, bottom: 50, left: 60},
     width = 900 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -58,10 +58,11 @@
     .attr("class","labels x-label")
     .attr("transform", "translate("+(width/2 - 30)+"," + (height+15) + ")")
     .append("text")
-    .text("Co2 emission per capita")
+    .text("CO2 emissions (in tonnes) per capita")
 
     node_hdi = svg.append("g")
         .attr("class","nodeHDI");
+
     node_hdi_text = node_hdi.append("text")
 
     var idToNode = {};
@@ -163,9 +164,9 @@
     svg.selectAll("." + d.name.split(" ")[0] + "_arc")
     .style('stroke-width',4);
 
-    node_hdi.attr("transform", "translate("+(x(d.cp))+"," + (height-5) + ")");
+    node_hdi.attr("transform", "translate("+(x(d.cp))+"," + (height) + ")");
 
-    node_hdi_text.text(d.n)
+    node_hdi_text.style('font-size',"10px").text("HDI: "+d.n)
 
 
 })
